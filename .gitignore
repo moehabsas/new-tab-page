@@ -1,0 +1,12 @@
+# Node.js dependencies
+node_modules/
+
+# Build outputs
+.sass-cache/
+dist/
+build/
+*.js
+*.css
+
+# TypeScript
+*.tsbuildinfo

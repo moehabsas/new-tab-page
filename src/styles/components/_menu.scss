@@ -1,0 +1,22 @@
+$max-width: 420px;
+
+.menu {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  max-width: $max-width;
+  height: 100%;
+  outline: 1px solid var(--border-color);
+  backdrop-filter: blur(20px) brightness(0.7);
+  overflow: auto;
+  transition: margin var(--animation-time) ease-out,
+    opacity var(--animation-time) ease-out;
+
+  z-index: 999;
+}
+
+// Show menu when checkbox is checked
+input[type="checkbox"]:not(:checked) + .menu {
+  margin: 0 max(-100%, ($max-width * -1));
+  opacity: 0;
+}

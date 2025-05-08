@@ -1,0 +1,55 @@
+{
+  "name": "new-tab-page",
+  "version": "1.0.0",
+  "description": "A fully customizable and dynamic new tab page with quick access to your favorite websites and search engines.",
+  "homepage": "https://github.com/moehabsas/new-tab-page",
+  "license": "MIT",
+  "contributors": [],
+  "author": {
+    "name": "Mohamed El-Gedawy",
+    "email": "moehabsas@gmail.com",
+    "url": "https://github.com/moehabsas"
+  },
+  "main": "index.html",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/moehabsas/new-tab-page.git",
+    "directory": "."
+  },
+  "bugs": {
+    "email": "moehabsas@gmail.com",
+    "url": "https://github.com/moehabsas/new-tab-page/issues"
+  },
+  "scripts": {
+    "dev": "concurrently \"npm run watch:ts\" \"npm run watch:sass\" \"live-server . --entry-file=index.html --port=3030\" && npm run clean && clear",
+    "watch:ts": "esbuild src/script/main.ts --outfile=script.js --watch --bundle",
+    "watch:sass": "sass src/styles/main.scss:styles.css --watch --no-source-map",
+    "build": "npm run clean && npm run build:ts && npm run build:sass && npm run build:assets",
+    "build:ts": "esbuild src/script/main.ts --outfile=build/script.js --bundle --minify",
+    "build:sass": "sass src/styles/main.scss:build/styles.css --style=compressed --no-source-map",
+    "build:assets": "cp index.html public build/ -r",
+    "clean": "rm -rf build script.js styles.css",
+    "lint": "eslint src/script --ext .ts",
+    "test": "npm run lint",
+    "start": "npm run dev"
+  },
+  "keywords": [
+    "newtab",
+    "search",
+    "page",
+    "tools",
+    "customizable",
+    "dynamic"
+  ],
+  "devDependencies": {
+    "@eslint/js": "^9.26.0",
+    "concurrently": "^9.1.2",
+    "esbuild": "^0.25.4",
+    "eslint": "^9.26.0",
+    "live-server": "^1.2.2",
+    "sass": "^1.87.0",
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.32.0"
+  }
+}
