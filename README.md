@@ -39,14 +39,6 @@ npm run build
 npm run clean
 ```
 
----
+<br />
 
-### ⭐ Support
-
-If you like this project, please consider giving it a ⭐ on [GitHub](https://github.com/moehabsas/new-tab-page)!
-
----
-
-### 📄 License
-
-This project is licensed under the [MIT License](LICENSE).
+#### If you like this project, please consider giving it a ⭐ on [GitHub](https://github.com/moehabsas/new-tab-page)!
