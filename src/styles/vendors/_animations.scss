@@ -1,19 +1,15 @@
-@mixin fade-in($translate-y) {
-  opacity: 0;
-  filter: blur(20px);
-  translate: 0 $translate-y;
-}
+@use "../core/mixins" as mixins;
 
 @keyframes fade-in-logo {
   from {
     scale: 0;
-    @include fade-in(50px);
+    @include mixins.fade-in(50px);
   }
 }
 
 @keyframes fade-in-button {
   from {
-    @include fade-in(20px);
+    @include mixins.fade-in(20px);
   }
 }
 
@@ -42,4 +38,3 @@
     transform: translateX(15px);
   }
 }
-

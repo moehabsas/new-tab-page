@@ -1,4 +1,4 @@
-/// @param {number} $scale - The element scale when it hides.
+/// @param {number} scale - The element scale when it hides.
 @mixin icon-hide($scale) {
   visibility: hidden;
   opacity: 0;
@@ -13,6 +13,13 @@
   scale: 1;
 
   filter: blur(0);
+}
+
+/// @param {number} translate-y - The element translate `y`.
+@mixin fade-in($translate-y) {
+  opacity: 0;
+  filter: blur(20px);
+  translate: 0 $translate-y;
 }
 
 /// @param {string} pseudo-class - The pseudo class to apply the styles to (default is ":hover").
