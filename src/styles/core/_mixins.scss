@@ -1,0 +1,30 @@
+/// @param {number} $scale - The element scale when it hides.
+@mixin icon-hide($scale) {
+  visibility: hidden;
+  opacity: 0;
+  scale: $scale;
+
+  filter: blur(10px);
+}
+
+@mixin icon-visible {
+  visibility: visible;
+  opacity: 1;
+  scale: 1;
+
+  filter: blur(0);
+}
+
+/// @param {string} pseudo-class - The pseudo class to apply the styles to (default is ":hover").
+@mixin special-elem($pseudo-class: ":hover") {
+  background-color: var(--background-alt);
+  border: 1px solid var(--border-color);
+  outline: 1px dashed transparent;
+
+  transition: var(--animation-time) ease-in-out;
+
+  &#{$pseudo-class} {
+    outline-color: var(--primary) !important;
+    background-color: var(--background-deep) !important;
+  }
+}

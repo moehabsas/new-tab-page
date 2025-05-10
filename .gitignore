@@ -1,0 +1,14 @@
+# Node.js dependencies
+node_modules/
+
+# TypeScript
+*.tsbuildinfo
+
+# Build outputs
+.sass-cache/
+build/
+*.js
+*.css
+
+# Local directions
+.vscode/

@@ -1,0 +1,18 @@
+@use "../core/mixins" as mixins;
+
+.bar {
+  position: fixed;
+  top: 25px;
+  right: 25px;
+  z-index: 998;
+
+  label {
+    display: flex;
+    height: 43px;
+    aspect-ratio: 1;
+    padding: 9px;
+    border-radius: 50%;
+
+    @include mixins.special-elem;
+  }
+}

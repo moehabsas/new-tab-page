@@ -1,0 +1,154 @@
+@use "../core/mixins" as mixins;
+
+$search-form-icons-size: 40px;
+
+.content {
+  margin: 50vh auto 40px;
+  width: clamp(132px, (100% - 50px), 580px);
+
+  > span img {
+    display: block;
+    margin: 0 auto;
+    width: 150px;
+    animation: fade-in-logo var(--animation-time) linear 1;
+  }
+
+  > form {
+    $transition-opts: var(--animation-time) ease-in;
+
+    display: flex;
+    margin: 35px 35px 0;
+    padding: 10px;
+    border-radius: 30px;
+
+    @include mixins.special-elem(":is(:hover, :has(> input:focus))");
+
+    > * {
+      height: $search-form-icons-size;
+    }
+
+    &[data-value-type="url"]:has(> input:not(:placeholder-shown)) {
+      > input {
+        color: var(--primary);
+        font-weight: 900 !important;
+      }
+
+      > span {
+        background-color: var(--primary);
+        box-shadow: 0 0 5px 1px var(--primary);
+
+        svg {
+          @include mixins.icon-visible;
+        }
+
+        img {
+          @include mixins.icon-hide(2);
+        }
+      }
+    }
+
+    > span {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      transition: background-color $transition-opts, box-shadow $transition-opts;
+
+      > * {
+        position: absolute;
+        transition: opacity $transition-opts, filter $transition-opts,
+          scale $transition-opts, visibility 0s linear var(--animation-time);
+      }
+
+      svg {
+        width: 20px;
+
+        @include mixins.icon-hide(0);
+      }
+
+      img {
+        width: 100%;
+        aspect-ratio: 1;
+        border-radius: 50%;
+
+        @include mixins.icon-visible;
+      }
+    }
+
+    > input {
+      width: 100%;
+      font-size: 14px;
+      font-weight: 500;
+      text-indent: 10px;
+      transition: font-weight 100ms ease-in-out;
+
+      &:placeholder-shown + label {
+        width: 0 !important;
+        scale: 2;
+        filter: blur(25px) opacity(0);
+      }
+    }
+
+    > label {
+      display: flex;
+      width: $search-form-icons-size;
+      padding: 2px;
+      transition: width $transition-opts, scale $transition-opts,
+        filter $transition-opts;
+
+      input {
+        display: none !important;
+      }
+
+      svg {
+        stroke-width: 1px;
+        --foreground: var(--foreground-transparent);
+      }
+    }
+  }
+
+  > ul {
+    display: grid;
+    gap: 15px 20px;
+    grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
+    margin-top: 30px;
+
+    li {
+      display: flex;
+      list-style: none;
+
+      a {
+        width: 100%;
+        animation: fade-in-button var(--animation-time) linear 1;
+
+        div {
+          display: flex;
+          padding: 20%;
+          margin-bottom: 9px;
+          border-radius: 32%;
+          aspect-ratio: 1;
+
+          @include mixins.special-elem;
+
+          img {
+            width: 100%;
+            aspect-ratio: 1;
+            border-radius: 27%;
+          }
+        }
+
+        p {
+          font-size: 12px;
+          font-weight: 600;
+          text-align: center;
+          color: var(--foreground-transparent);
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+      }
+    }
+  }
+}

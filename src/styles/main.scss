@@ -1,0 +1,73 @@
+@use "./components/bar";
+@use "./components/content";
+@use "./components/menu";
+@use "./vendors/animations";
+
+@font-face {
+  font-family: "SF-Pro";
+  font-weight: 500;
+  src: url("../public/fonts/SF-Pro.ttf") format("truetype");
+}
+
+* {
+  box-sizing: border-box !important;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --animation-time: 300ms;
+
+  --background: url("../public/bg.png");
+  --background-alt: #0a192f;
+  --background-deep: #0b1b33;
+
+  --foreground: #fff;
+  --foreground-transparent: rgba(255, 255, 255, 0.4);
+
+  --border-color: rgba(255, 255, 255, 0.15);
+
+  --primary: #00aeef;
+}
+
+html,
+body {
+  height: 100%;
+  line-height: 1.6;
+  overflow: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--foreground) transparent;
+}
+
+body {
+  font-family: "SF-Pro", "Amiri", "Roboto", "Cairo", sans-serif;
+  background: var(--background);
+  background-size: 100% 100%;
+  color: var(--foreground);
+}
+
+input {
+  all: unset;
+}
+
+button,
+label,
+a {
+  all: unset;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+svg {
+  aspect-ratio: 1;
+  fill: none;
+  stroke: var(--foreground);
+  stroke-width: 2px;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+
+  &[data-fill="true"] {
+    fill: var(--foreground);
+    stroke: none;
+  }
+}
